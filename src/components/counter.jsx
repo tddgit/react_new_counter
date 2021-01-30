@@ -2,34 +2,17 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
+    id: this.props.id,
     value: this.props.value,
   };
-  //   tags: ["tag1", "tag2", "tag3"],
-  // };
 
-  // constructor() {
-  //   super();
-  //   this.handleIncrement = this.handleIncrement.bind(this);
-  // }
-
-  // style = {
-  //   fontSize: 10,
-  //   fontWeight: "bold",
-  // };
   handleIncrement = () => {
-    // console.log("Increment Clicked", product);
     this.setState({ value: this.state.value + 1 });
   };
 
-  // doHandleIncrement = () => {
-  //   this.handleIncrement({ id: 1 });
-  // };
-
   render() {
-    // console.log("props", this.props);
     return (
       <div>
-        {/*{this.state.tags.length === 0 && "Please create a new tag"}*/}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={this.handleIncrement}
@@ -37,21 +20,15 @@ class Counter extends Component {
         >
           Increment
         </button>
-        {/*<ul>{this.renderTags()}</ul>*/}
+        <button
+          onClick={() => this.props.onDelete(this.props.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
+        </button>
       </div>
     );
   }
-
-  // renderTags() {
-  //   if (this.state.tags.lengh === 0) return <p>There are no tags</p>;
-  //   return (
-  //     <ul>
-  //       {this.state.tags.map((tag) => (
-  //         <li key={tag}>{tag}</li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
