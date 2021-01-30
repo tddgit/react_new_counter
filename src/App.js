@@ -11,8 +11,9 @@ class App extends Component {
       { id: 3, value: 0 },
       { id: 4, value: 0 },
     ],
-    total: 0,
   };
+
+  // this.state = this.props.something;
 
   // totalCounters = () => {
   //   const { counters } = [...this.state.counters];
@@ -29,7 +30,6 @@ class App extends Component {
   handleIncrement = (counter) => {
     const counters = [...this.state.counters];
 
-    console.log(counters);
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
     counters[index].value += 1;
@@ -52,6 +52,7 @@ class App extends Component {
     // this.totalCounters();
   };
   render() {
+    console.log("APP -Rendered");
     return (
       <React.Fragment>
         <NavBar
